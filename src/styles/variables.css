@@ -1,0 +1,64 @@
+/* ============================================================
+   Lumine Odontologia — variáveis de design
+   Troque aqui cor, marca, links e dados de contato.
+   ============================================================ */
+
+:root {
+  /* Marca */
+  --brand: #4fb3e8;
+  --brand-dark: #2f9ad3;
+  --brand-soft: #eaf6fd;
+  --brand-softer: #f5fbff;
+
+  /* Texto */
+  --ink: #0f2a43;
+  --muted: #5b7186;
+
+  /* Superfícies */
+  --bg: #ffffff;
+  --bg-soft: #f7fbfe;
+
+  /* Linhas e bordas */
+  --line: rgba(79, 179, 232, 0.25);
+  --line-strong: rgba(79, 179, 232, 0.45);
+
+  /* Tipografia */
+  --font: "Plus Jakarta Sans", "Manrope", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fs-headline: clamp(2.75rem, 7.6vw, 6.9rem);
+  --fs-h2: clamp(2rem, 3.9vw, 3.4rem);
+  --fs-h3: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.8125rem;
+  --fs-micro: 0.6875rem;
+
+  /* Layout */
+  --gutter: clamp(20px, 4vw, 64px);
+  --maxw: 1280px;
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-xs: 0 1px 2px rgba(15, 42, 67, 0.04);
+  --shadow-sm: 0 6px 18px rgba(15, 42, 67, 0.06);
+  --shadow-md: 0 18px 44px rgba(15, 42, 67, 0.09);
+  --shadow-brand: 0 14px 34px rgba(79, 179, 232, 0.22);
+
+  /* Movimento */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.45s;
+}
+
+/* Respeta usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

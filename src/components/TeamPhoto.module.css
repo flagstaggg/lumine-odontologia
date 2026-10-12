@@ -1,0 +1,16 @@
+.photo,
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, var(--brand-soft), #d7ecfa);
+  color: var(--brand-dark);
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}

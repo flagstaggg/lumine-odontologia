@@ -1,0 +1,137 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.steps > li {
+  display: flex;
+  gap: 22px;
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.steps > li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.steps > li:last-child {
+  padding-bottom: 0;
+}
+
+.number {
+  flex: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  padding-top: 4px;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stepText {
+  margin-top: 6px;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.note {
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--brand-soft) 0%, #ffffff 78%);
+  overflow: hidden;
+}
+
+.visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    60% 50% at 50% 12%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.visualBadge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 420px;
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    min-height: 360px;
+    order: -1;
+  }
+
+  .scene {
+    height: 360px;
+  }
+}
+
+@media (max-width: 639px) {
+  .visual {
+    min-height: 300px;
+  }
+
+  .scene {
+    height: 300px;
+  }
+
+  .steps > li {
+    gap: 16px;
+    padding-block: 18px;
+  }
+}

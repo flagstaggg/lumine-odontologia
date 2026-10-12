@@ -1,0 +1,83 @@
+.stage {
+  /* --implant-height e --implant-base são definidos via props */
+  --implant-height: 80%;
+  --implant-base: 13%;
+
+  position: relative;
+  pointer-events: none;
+}
+
+/* Degradê radial branco → azul claro (#EAF6FD) atrás do implante */
+.glow {
+  position: absolute;
+  inset: 2% 0;
+  background: radial-gradient(
+    44% 44% at 50% 50%,
+    var(--brand-soft) 0%,
+    rgba(234, 246, 253, 0.62) 42%,
+    rgba(255, 255, 255, 0) 76%
+  );
+  filter: blur(8px);
+}
+
+/*Caixa com a mesma proporção do PNG, apoiada na linha do "chão" */
+.plinth {
+  position: absolute;
+  left: 50%;
+  bottom: var(--implant-base);
+  translate: -50% 0;
+  height: var(--implant-height);
+  max-width: 88%;
+  aspect-ratio: 568 / 1298;
+}
+
+/* Sombra de contato: elipse difusa que acompanha a flutuação */
+.shadow {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -3.5%;
+  width: 62%;
+  height: 7%;
+  min-height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(96, 118, 139, 0.9) 0%,
+    rgba(96, 118, 139, 0.35) 55%,
+    rgba(96, 118, 139, 0) 78%
+  );
+  filter: blur(7px);
+  will-change: transform, opacity;
+}
+
+/* Flutuação vertical + parallax horizontal */
+.float {
+  position: absolute;
+  inset: 0;
+  display: block;
+  will-change: transform;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+@media (max-width: 639px) {
+  .glow {
+    inset: 0 -12%;
+  }
+
+  .shadow {
+    filter: blur(5px);
+  }
+}

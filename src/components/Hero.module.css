@@ -1,0 +1,157 @@
+﻿.hero {
+  --hero-top: 96px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: var(--hero-top);
+  overflow: hidden;
+}
+
+.body {
+  position: relative;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  column-gap: clamp(24px, 4vw, 64px);
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  min-height: 0;
+}
+
+/* Texto pequeno no topo esquerdo */
+.intro {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 30ch;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Peça 3D centralizada no hero (sobe por baixo do header) */
+.stage {
+  position: absolute;
+  top: calc(var(--hero-top) * -1);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Carrossel à direita, sangrando até a borda */
+.carousel {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  justify-self: end;
+  width: min(28vw, 400px);
+  margin-right: calc(-1 * var(--gutter));
+  margin-bottom: 4vh;
+  z-index: 2;
+}
+
+/* Headline gigante no canto inferior esquerdo */
+.headline {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  z-index: 2;
+  margin: 0;
+  padding-bottom: clamp(24px, 3vw, 44px);
+  font-size: clamp(2.75rem, 6.4vw, 5.6rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.line {
+  display: block;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.word {
+  display: inline-block;
+}
+
+.accent {
+  color: var(--brand);
+}
+
+/* ---------- Tablet: coluna única ---------- */
+
+@media (max-width: 1023px) {
+  .hero {
+    --hero-top: 88px;
+  }
+
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      "intro"
+      "stage"
+      "headline"
+      "carousel";
+    row-gap: 26px;
+    padding-bottom: 40px;
+  }
+
+  .intro {
+    grid-area: intro;
+    max-width: 42ch;
+    font-size: 0.875rem;
+  }
+
+  .stage {
+    grid-area: stage;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    height: clamp(250px, 44vw, 370px);
+    margin-block: -6px;
+  }
+
+  .headline {
+    grid-area: headline;
+    padding-bottom: 0;
+  }
+
+  .carousel {
+    grid-area: carousel;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    --hero-top: 78px;
+  }
+
+  .body {
+    row-gap: 22px;
+  }
+
+  .stage {
+    height: 72vw;
+    max-height: 320px;
+  }
+}
